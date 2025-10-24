@@ -3,8 +3,8 @@
 #include "Arduino.h"
 
 //Screeen Pin Assignments
-#define EPD_BSY_PIN 13
-#define EPD_RST_PIN 12
+#define EPD_BSY_PIN 12
+#define EPD_RST_PIN 13
 #define EPD_DC_PIN 10
 #define EPD_CS_PIN 9
 

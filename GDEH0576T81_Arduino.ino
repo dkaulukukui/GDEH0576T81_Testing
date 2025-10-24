@@ -10,12 +10,13 @@ const long heartbeatInterval = 500; // Blink every 500ms
 bool ledState = LOW;
 
 void setup() {
-  //pinMode(EPD_BSY_PIN, INPUT); //BUSY
-  //pinMode(EPD_RST_PIN, OUTPUT); //RES
+  pinMode(EPD_BSY_PIN, INPUT); //BUSY
+  pinMode(EPD_RST_PIN, OUTPUT); //RES
   pinMode(EPD_DC_PIN, OUTPUT); //DC
   pinMode(EPD_CS_PIN, OUTPUT); //CS
   pinMode(MOSI_PIN, OUTPUT); //MOSI
   pinMode(CLK_PIN, OUTPUT); //CLK
+  
   
   // Setup heartbeat LED
   pinMode(LED_BUILTIN, OUTPUT);

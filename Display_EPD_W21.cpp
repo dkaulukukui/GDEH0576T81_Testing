@@ -60,14 +60,14 @@ void Write_LUT_All(void)
 void EPD_init(void)
 {
 	delay_xms(10);//At least 10ms delay
-	//Serial.println("Resetting Screen"); 	
-	//EPD_W21_RST_0;		// Module reset
+	Serial.println("Resetting Screen"); 	
+	EPD_W21_RST_0;		// Module reset
 	delay_xms(10);//At least 10ms delay 
-	//EPD_W21_RST_1;
+	EPD_W21_RST_1;
 	delay_xms(10);//At least 10ms delay 
-	//Serial.println("Screen Reset"); 
+	Serial.println("Screen Reset"); 
 	lcd_chkstatus();          //waiting for the electronic paper IC to release the idle signal
-	//Serial.println("Sending command"); 	
+	Serial.println("Sending command"); 	
 
 	EPD_W21_WriteCMD(0x00);  //PSR
 	EPD_W21_WriteDATA(0x27);
@@ -139,14 +139,19 @@ void EPD_update(void)
 
 void lcd_chkstatus(void)
 { 
-  //while(1)
-  //{	 //=0 BUSY
-     //if(isEPD_W21_BUSY==1) break;
+  while(1)
+  {	 //=0 BUSY
+     if(isEPD_W21_BUSY==1) break;
+
+		 Serial.println("Screen is Busy");
+		 delay(100);
 
 		 //manual delay to bypass having BUSY pin connected
-     delay(2000); //Delay for 3s.
+     //delay(2000); //Delay for 3s.
 		// break;
-  //}  
+  }  
+	
+		 delay(1000);
 }
 
 
