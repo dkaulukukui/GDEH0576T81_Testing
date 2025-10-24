@@ -2,16 +2,22 @@
 #define _DISPLAY_EPD_W21_SPI_
 #include "Arduino.h"
 
-//Screeen Pin Assignments
-#define EPD_BSY_PIN 12
-#define EPD_RST_PIN 13
-#define EPD_DC_PIN 10
-#define EPD_CS_PIN 9
+// Adafruit NRF52840 → RAK4630 (Arduino GPIO numbers)
+#define EPD_BSY_PIN  17  //WB_IO1 (P0.17)
+#define EPD_RST_PIN  21  //now WB_IO3 (P0.21) 
+#define EPD_DC_PIN    4  //now WB_IO4 (P0.04)
+#define EPD_CS_PIN   34  //now WB_IO2 (P1.02)   
 
-//SPI pin assignments
-#define MOSI_PIN 25
-#define CLK_PIN 26
-#define READ_PIN 22
+// Hardware SPI is used by the LoRa chip (SX1262) internally:
+// P1.10 (42) - NSS (LoRa CS)
+// P1.11 (43) - SCK (LoRa)  
+// P1.12 (44) - MOSI (LoRa)
+// P1.13 (45) - MISO (LoRa)
+
+// For your e-paper display, use software SPI or available GPIO pins:
+#define MOSI_PIN  9   //WB_IO5 (P0.09)
+#define CLK_PIN  10   // Was 26, now WB_IO6 (P0.10)
+#define READ_PIN  1   // Was 22, now WB_SW1 (P0.01) - or any other available GPIO
 
 
 
